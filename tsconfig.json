@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "module": "commonjs",
+      "target": "es6",
+      "jsx": "react",
+      "esModuleInterop": true,
+      "strict": true,
+      "moduleResolution": "node",
+      "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+      "src/**/*.ts"
+    ]
+  }
