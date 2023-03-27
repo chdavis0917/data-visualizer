@@ -43,21 +43,23 @@ function transformDataToHTML(data: { [key: string]: { [key: string]: ReactEventD
   });
 
   // Format sorted data as HTML
-  let html = '';
+  let html = '<table>';
+  html += '<tr><th>Date and Hour</th><th>Views</th><th>Clicks</th></tr>';
   sortedData.forEach(data => {
-    html += `<tr><td>${data.date} ${data.hour.toString().padStart(2, '0')}:00</td>`;
+    html += '<tr><td>' + data.date + ' ' + data.hour.toString().padStart(2, '0') + ':00</td>';
     if (data.views !== undefined) {
-      html += `<td>${data.views}</td>`;
+      html += '<td>' + data.views + '</td>';
     } else {
       html += '<td></td>';
     }
     if (data.clicks !== undefined) {
-      html += `<td>${data.clicks}</td>`;
+      html += '<td>' + data.clicks + '</td>';
     } else {
       html += '<td></td>';
     }
     html += '</tr>';
   });
+  html += '</table>';
 
   return html;
 }

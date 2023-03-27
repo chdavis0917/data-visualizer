@@ -9,13 +9,14 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    static: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
     proxy: {
@@ -46,11 +47,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: 'index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css',
-    }),
+      filename: 'style.css'
+    }),    
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
